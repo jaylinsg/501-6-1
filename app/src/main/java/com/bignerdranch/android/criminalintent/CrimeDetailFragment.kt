@@ -237,6 +237,12 @@ class CrimeDetailFragment : Fragment() {
                     )
                     binding.crimePhoto.setImageBitmap(scaledBitmap)
                     binding.crimePhoto.tag = photoFileName
+
+                    // Set an OnClickListener to open the zoomed-in dialog
+                    binding.crimePhoto.setOnClickListener {
+                        val zoomedDialog = ZoomedView.newInstance(photoFileName)
+                        zoomedDialog.show(parentFragmentManager, null)
+                    }
                 }
             } else {
                 binding.crimePhoto.setImageBitmap(null)
